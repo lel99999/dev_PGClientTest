@@ -1,0 +1,142 @@
+version: "3.3"
+
+services:
+  postgres9:
+# vanilla image
+#   image: "postgres:9.6"
+    build:
+      context: ./postgres9.x
+      dockerfile: Dockerfile
+    hostname: postgres9.local
+    environment:
+      SSH_AUTH_SOCK: "/run/host-services/ssh-auth.sock"
+      POSTGRES_PASSWORD: "password9"
+    volumes:
+      - "./postgres9.x/postgres.conf:/usr/local/etc/postgres/postgres.conf"
+      - "./postgres9.x/data:/var/lib/postgresql/data:delegated"
+    command: "postgres -c config_file=/usr/local/etc/postgres/postgres.conf"
+#   ports:
+#     - "5432:5432"
+    networks:
+      vresearchnet:
+        aliases: 
+          - postgres9
+          - postgres9.local
+        ipv4_address: 10.0.1.9
+
+  postgres10:
+    image: "postgres:10.14"
+    hostname: postgres10.local
+    environment:
+      SSH_AUTH_SOCK: "/run/host-services/ssh-auth.sock"
+      POSTGRES_PASSWORD: "password10"
+    volumes:
+      - "./postgres10.x/postgres.conf:/usr/local/etc/postgres/postgres.conf"
+      - "./postgres10.x/data:/var/lib/postgresql/data:delegated"
+    command: "postgres -c config_file=/usr/local/etc/postgres/postgres.conf"
+#   ports:
+#     - "5432:5432"
+    networks:
+      vresearchnet:
+        aliases:
+          -  postgres10
+          -  postgres10.local
+        ipv4_address: 10.0.1.10
+#   depends_on:
+#     - <dependency>
+
+  postgres11:
+    image: "postgres:11.13"
+    hostname: postgres11.local
+    environment:
+      SSH_AUTH_SOCK: "/run/host-services/ssh-auth.sock"
+      POSTGRES_PASSWORD: "password11"
+    volumes:
+      - "./postgres11.x/postgres.conf:/usr/local/etc/postgres/postgres.conf"
+      - "./postgres11.x/data:/var/lib/postgresql/data:delegated"
+    command: "postgres -c config_file=/usr/local/etc/postgres/postgres.conf"
+#   ports:
+#     - "5432:5432"
+    networks:
+      vresearchnet:
+        aliases:
+          -  postgres11
+          -  postgres11.local
+        ipv4_address: 10.0.1.11
+#   depends_on:
+#     - <dependency>
+
+  postgres12:
+    image: "postgres:12.8"
+    hostname: postgres12.local
+    environment:
+      SSH_AUTH_SOCK: "/run/host-services/ssh-auth.sock"
+      POSTGRES_PASSWORD: "password12"
+    volumes:
+      - "./postgres12.x/postgres.conf:/usr/local/etc/postgres/postgres.conf"
+      - "./postgres12.x/data:/var/lib/postgresql/data:delegated"
+    command: "postgres -c config_file=/usr/local/etc/postgres/postgres.conf"
+#   ports:
+#     - "5432:5432"
+    networks:
+      vresearchnet:
+        aliases:
+          - postgres12
+          - postgres12.local
+        ipv4_address: 10.0.1.12
+#   depends_on:
+#     - <dependency>
+
+  postgres13:
+    image: "postgres:13.4"
+    hostname: postgres13.local
+    environment:
+      SSH_AUTH_SOCK: "/run/host-services/ssh-auth.sock"
+      POSTGRES_PASSWORD: "password13"
+    volumes:
+      - "./postgres13.x/postgres.conf:/usr/local/etc/postgres/postgres.conf"
+      - "./postgres13.x/data:/var/lib/postgresql/data:delegated"
+    command: "postgres -c config_file=/usr/local/etc/postgres/postgres.conf"
+#   ports:
+#     - "5432:5432"
+    networks:
+      vresearchnet:
+        aliases:
+          - postgres13
+          - postgres13.local
+        ipv4_address: 10.0.1.13
+#   depends_on:
+#     - <dependency>
+
+  postgres14:
+    image: "postgres:14"
+    environment:
+      SSH_AUTH_SOCK: "/run/host-services/ssh-auth.sock"
+      POSTGRES_PASSWORD: "password14"
+    volumes:
+      - "./postgres14.x/postgres.conf:/usr/local/etc/postgres/postgres.conf"
+      - "./postgres14.x/data:/var/lib/postgresql/data:delegated"
+    command: "postgres -c config_file=/usr/local/etc/postgres/postgres.conf"
+#   ports:
+#     - "5432:5432"
+    networks:
+      vresearchnet:
+        aliases:
+          - postgres14
+          - postgres14.local
+        ipv4_address: 10.0.1.14
+#   depends_on:
+#     - <dependency>
+
+
+networks:
+  vresearchnet:
+    driver: bridge
+    ipam:
+#    driver: default
+     config:
+       - subnet: 10.0.1.0/24
+#        gateway: 10.0.1.1
+#        aux_addresses:
+#         postgres9: 10.0.1.5
+#         postgres10: 10.0.1.6
