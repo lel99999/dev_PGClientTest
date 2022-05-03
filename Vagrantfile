@@ -41,8 +41,8 @@ Vagrant.configure("2") do |config|
 #     ansible.limit = ansible_limit
     end
 
-#   server.vm.network :private_network, ip: "10.0.1.27"
-    server.vm.network :private_network, ip: "192.168.60.149"
+#   testcli2.vm.network :private_network, ip: "10.0.1.27"
+    testcli2.vm.network :private_network, ip: "192.168.60.149"
   end
 
   config.vm.define :testcli3 do |testcli3|
@@ -61,8 +61,8 @@ Vagrant.configure("2") do |config|
 #     ansible.limit = ansible_limit
     end
 
-#   server.vm.network :private_network, ip: "10.0.1.28"
-    server.vm.network :private_network, ip: "192.168.60.150"
+#   testcli3.vm.network :private_network, ip: "10.0.1.28"
+    testcli3.vm.network :private_network, ip: "192.168.60.150"
   end
 
 #######################################################################################################################################
