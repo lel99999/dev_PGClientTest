@@ -1,12 +1,12 @@
 ---
+- hosts: testcli1
   vars:
     custom_repo: true
     deploy_iptables: true
     envir: PROD
 #   envir: DEV.local
   vars_files:
-     - ~/RHACCOUNT
-- hosts: testcli1
+    - ~/RHACCOUNT
   become: yes
   become_method: sudo
 
@@ -36,40 +36,81 @@
         name: libselinux-python
         state: present
   roles:
-    - {role: common, when: "install_glusterfs"}
-    - {role: puppet_disable, when: "disable_puppet"}
-    - {role: iptables, when: "iptables_config"}
-    - gocd_server
-    - gocd
+#   - {role: common, when: "install_glusterfs"}
+#   - {role: puppet_disable, when: "disable_puppet"}
+#   - {role: iptables, when: "iptables_config"}
+#   - gocd_server
+#   - gocd
 
 - hosts: testcli2 
+  vars:
+    custom_repo: true
+    deploy_iptables: true
+    envir: PROD
+#   envir: DEV.local
+  vars_files:
+    - ~/RHACCOUNT
   become: yes
   become_method: sudo
-  serial: 1
-  max_fail_percentage: 10
+# serial: 1
+# max_fail_percentage: 10
+
+  pre_tasks:
+    - debug:
+#       msg: "Variables: _uid = {{ _uid }}, _pwd = **********"
+        msg: "Variables: _uid = {{ _uid }}, _pwd = {{ _pwd }}"
+    - name: register RHEL7.5
+      command: "/usr/bin/subscription-manager register --username {{ _uid }} --password {{ _pwd }} --auto-attach --force"
+#     when: _uid != "" and _pwd != ""
+#     command: "/usr/bin/subscription-manager register --username <name> --password <password> --auto-attach"
+    - name: register RHEL7 repos necessary for Chrome (optional, extras)
+      command: "/usr/bin/subscription-manager repos --enable=rhel-7-server-rpms --enable=rhel-7-server-extras-rpms --enable=rhel-7-server-optional-rpms"
+    - name: register RHEL7 RHSCL Repo
+      shell: "/usr/bin/subscription-manager repos --enable=rhel-server-rhscl-7-rpms"
+    - name: register RHEL7 DevTools
+      shell: "/usr/bin/subscription-manager repos --enable=rhel-7-server-devtools-rpms"
+    - name: list RHEL enabled repos
+      shell: "/usr/bin/subscription-manager repos --list-enabled"
+      register: enabled_repos
+    - debug:
+        msg: "RHEL Enabled Repos: {{ enabled_repos }}"
+
   roles:
-    - {role: common, when: "install_glusterfs"}
+#   - {role: common, when: "install_glusterfs"}
 #    - devtools
-    - devtools6
-    - {role: puppet_disable, when: "disable_puppet"}
-    - {role: iptables, when: "iptables_config"}
-    - gocd
-    - pentaho
-    - {role: python, when: "custom_repo"}
-    - {role: python-build, when: "not custom_repo"}
-    - {role: python3, when: "custom_repo"}
-    - {role: python3-build, when: "not custom_repo"}
-    - python-libs
-    - odbc
-    - {role: ruby, when: "install_ruby"}
-    - sqitch
-    - nodejs
-    - maven
-    #- julia
+#   - devtools6
 
 - hosts: testcli3
+  vars:
+    custom_repo: true
+    deploy_iptables: true
+    envir: PROD
+#   envir: DEV.local
+  vars_files:
+    - ~/RHACCOUNT
   become: yes
   become_method: sudo
+
+  pre_tasks:
+    - debug:
+#       msg: "Variables: _uid = {{ _uid }}, _pwd = **********"
+        msg: "Variables: _uid = {{ _uid }}, _pwd = {{ _pwd }}"
+    - name: register RHEL7.5
+      command: "/usr/bin/subscription-manager register --username {{ _uid }} --password {{ _pwd }} --auto-attach --force"
+#     when: _uid != "" and _pwd != ""
+#     command: "/usr/bin/subscription-manager register --username <name> --password <password> --auto-attach"
+    - name: register RHEL7 repos necessary for Chrome (optional, extras)
+      command: "/usr/bin/subscription-manager repos --enable=rhel-7-server-rpms --enable=rhel-7-server-extras-rpms --enable=rhel-7-server-optional-rpms"
+    - name: register RHEL7 RHSCL Repo
+      shell: "/usr/bin/subscription-manager repos --enable=rhel-server-rhscl-7-rpms"
+    - name: register RHEL7 DevTools
+      shell: "/usr/bin/subscription-manager repos --enable=rhel-7-server-devtools-rpms"
+    - name: list RHEL enabled repos
+      shell: "/usr/bin/subscription-manager repos --list-enabled"
+      register: enabled_repos
+    - debug:
+        msg: "RHEL Enabled Repos: {{ enabled_repos }}"
+
   tasks:
     #- name: Activate Julia repo
     #  get_url:
@@ -111,30 +152,58 @@
       when: db_automation_custom_packages is defined
 
 - hosts: testcli_terminal
+  vars:
+    custom_repo: true
+    deploy_iptables: true
+    envir: PROD
+#   envir: DEV.local
+  vars_files:
+    - ~/RHACCOUNT
   become: yes
   become_method: sudo
+
+  pre_tasks:
+    - debug:
+#       msg: "Variables: _uid = {{ _uid }}, _pwd = **********"
+        msg: "Variables: _uid = {{ _uid }}, _pwd = {{ _pwd }}"
+    - name: register RHEL7.5
+      command: "/usr/bin/subscription-manager register --username {{ _uid }} --password {{ _pwd }} --auto-attach --force"
+#     when: _uid != "" and _pwd != ""
+#     command: "/usr/bin/subscription-manager register --username <name> --password <password> --auto-attach"
+    - name: register RHEL7 repos necessary for Chrome (optional, extras)
+      command: "/usr/bin/subscription-manager repos --enable=rhel-7-server-rpms --enable=rhel-7-server-extras-rpms --enable=rhel-7-server-optional-rpms"
+    - name: register RHEL7 RHSCL Repo
+      shell: "/usr/bin/subscription-manager repos --enable=rhel-server-rhscl-7-rpms"
+    - name: register RHEL7 DevTools
+      shell: "/usr/bin/subscription-manager repos --enable=rhel-7-server-devtools-rpms"
+    - name: list RHEL enabled repos
+      shell: "/usr/bin/subscription-manager repos --list-enabled"
+      register: enabled_repos
+    - debug:
+        msg: "RHEL Enabled Repos: {{ enabled_repos }}"
+
   roles:
-    - {role: common, when: "install_glusterfs"}
-    - devtools
-    - {role: puppet_disable, when: "disable_puppet"}
-    - {role: iptables, when: "iptables_config"}
-    - {role: epel, when: "use_epel and not 'production' in group_names"}
-    - eod
-    - talend # Talend goes here because it installs an older java
-    - gocd
-    - {role: python, when: "custom_repo"}
-    - {role: python-build, when: "not custom_repo"}
-    - {role: python3, when: "custom_repo"}
-    - {role: python3-build, when: "not custom_repo"}
-    - python-libs
-    - r-core
-    - r-libs
-    - {role: ruby, when: "install_ruby"}
-    - pycharm
-    - r-studio-desktop
-    - clouseau
-    - {role: pentaho, when: "install_pentaho"}
-    - sublime
+#   - {role: common, when: "install_glusterfs"}
+#   - devtools
+#   - {role: puppet_disable, when: "disable_puppet"}
+#   - {role: iptables, when: "iptables_config"}
+#   - {role: epel, when: "use_epel and not 'production' in group_names"}
+#   - eod
+#   - talend # Talend goes here because it installs an older java
+#   - gocd
+#   - {role: python, when: "custom_repo"}
+#   - {role: python-build, when: "not custom_repo"}
+#   - {role: python3, when: "custom_repo"}
+#   - {role: python3-build, when: "not custom_repo"}
+#   - python-libs
+#   - r-core
+#   - r-libs
+#   - {role: ruby, when: "install_ruby"}
+#   - pycharm
+#   - r-studio-desktop
+#   - clouseau
+#   - {role: pentaho, when: "install_pentaho"}
+#   - sublime
 #   - julia
 
   tasks:
