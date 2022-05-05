@@ -11,15 +11,17 @@ postgres_repository_url: "https://download.postgresql.org/pub/repos/yum/reporpms
 #postgres_rpm: "https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm"
 postgres_rpm: "https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm"
 #postgres_repository_key_url: "https://download.postgresql.org/pub/repos/yum/RPM-GPG-KEY-PGDG-10"
-postgres_repository_key_url: "https://download.postgresql.org/pub/repos/yum/RPM-GPG-KEY-PGDG-10"
-postgres_repository_name: pgdg10
-postgres_install_dir: /usr/pgsql-10
+postgres_repository_key_url: "https://download.postgresql.org/pub/repos/yum/RPM-GPG-KEY-PGDG-13"
+postgres_repository_name: pgdg13
+postgres_install_dir: /usr/pgsql-13
 postgres_install_repository: True
 
 postgres_packages:
   - postgresql10
   - postgresql10-devel
   - postgresql10-odbc
+
+postgres13_packages:
   - postgres13_packages:
   - postgresql13.x86_64
   - postgresql13-contrib.x86_64
@@ -33,7 +35,8 @@ postgres_packages:
   - postgresql13-pltcl.x86_64
 # - postgresql13-server.x86_64
   - postgresql13-test.x86_64
-postgres_rhel_packages:
+
+postgres13_rhel_packages:
   - rh-postgresql13.x86_64
   - rh-postgresql13-pg_repack.x86_64
   - rh-postgresql13-pg_repack-syspaths.x86_64
@@ -60,6 +63,14 @@ postgres_gis_packages:
   - postgis25_10-devel
   - postgis25_10-utils
   - postgis25_10-gui
+
+postgres13_gis_packages:
+  - postgis32_13
+  - postgis32_13-client
+  - postgis32_13-devel
+  - postgis32_13-docs
+  - postgis32_13-gui
+  - postgis32_13-utils
 
 postgres_old_packages:
   - rh-postgresql96
