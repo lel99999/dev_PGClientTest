@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
     testcli1.vm.box = "clouddood/RH7.5_baserepo"
     testcli1.vm.host_name = "testcli1.test.dev"
 
-    testcli1.vm.ssh.forward_agent = true
+#   testcli1.vm.ssh.forward_agent = true
 
     testcli1.vm.provision "ansible" do |ansible|
       ansible.playbook = "deploy_testcli.yml"
@@ -30,7 +30,7 @@ Vagrant.configure("2") do |config|
     testcli2.vm.box = "clouddood/RH7.5_baserepo"
     testcli2.vm.host_name = "testcli2.test.dev"
 
-    testcli2.ssh.forward_agent = true
+#   testcli2.ssh.forward_agent = true
 
     testcli2.vm.provision "ansible" do |ansible|
       ansible.playbook = "deploy_testcli.yml"
@@ -46,13 +46,13 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define :testcli3 do |testcli3|
-#   testcli3vm.box = "bento/centos-6.10"
-    testcli3vm.box = "clouddood/RH7.5_baserepo"
-    testcli3vm.host_name = "testcli3.test.dev"
+#   testcli3.vm.box = "bento/centos-6.10"
+    testcli3.vm.box = "clouddood/RH7.5_baserepo"
+    testcli3.vm.host_name = "testcli3.test.dev"
 
-    testcli3ssh.forward_agent = true
+#   testcli3.ssh.forward_agent = true
 
-    testcli3vm.provision "ansible" do |ansible|
+    testcli3.vm.provision "ansible" do |ansible|
       ansible.playbook = "deploy_testcli.yml"
       ansible.inventory_path = "vagrant_hosts"
 #     ansible.tags = ansible_tags
