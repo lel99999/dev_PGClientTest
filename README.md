@@ -52,6 +52,18 @@ Posgresql Client Test Suite
   - postgresql96-test
 
 - Postgresql 10.x
+  - postgresql10-10
+  - postgresql10-contrib
+  - postgresql10-devel
+  - postgresql10-docs
+  - postgresql10-libs
+  - postgresql10-odbc
+  - postgresql10-plperl
+  - postgresql10-plpython
+  - postgresql10-pltcl
+  - postgresql10-server
+  - postgresql10-tcl
+  - postgresql10-test
 
 - Postgresql 11.x
 
