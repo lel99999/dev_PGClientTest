@@ -66,6 +66,22 @@ Posgresql Client Test Suite
   - postgresql10-test
 
 - Postgresql 11.x
+  - postgresql11-11
+  - postgresql11-contrib
+  - postgresql11-devel
+  - postgresql11-docs
+  - postgresql11-libs
+  - postgresql11-llvmjit
+  - postgresql11-odbc-10
+  - postgresql11-odbc-11
+  - postgresql11-odbc-12
+  - postgresql11-odbc-13
+  - postgresql11-plperl
+  - postgresql11-plpython
+  - postgresql11-pltcl
+  - postgresql11-server
+  - postgresql11-tcl
+  - postgresql11-test
 
 - Postgresql 12.x
 
