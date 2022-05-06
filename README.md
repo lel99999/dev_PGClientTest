@@ -39,6 +39,17 @@ Posgresql Client Test Suite
 
 #### Build Out Postgresql DBs
 - Postgresql 9.x
+  - postgresql96-96
+  - postgresql96-contrib
+  - postgresql96-devel
+  - postgresql96-docs
+  - postgresql96-libs
+  - postgresql96-odbc
+  - postgresql96-plperl
+  - postgresql96-plpython
+  - postgresql96-pltcl
+  - postgresql96-server
+  - postgresql96-test
 
 - Postgresql 10.x
 
