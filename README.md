@@ -16,7 +16,7 @@ Posgresql Client Test Suite
 # - postgresql13-server.x86_64
   - postgresql13-test.x86_64
 
-- RH Postgresql13 Packages
+- RH7.9 x86_64 Postgresql13 Packages
   - rh-postgresql13.x86_64
   - rh-postgresql13-pg_repack.x86_64
   - rh-postgresql13-pg_repack-syspaths.x86_64
@@ -37,7 +37,7 @@ Posgresql Client Test Suite
   - rh-postgresql13-postgresql-syspaths.x86_64
   - rh-postgresql13-postgresql-test.x86_64
 
-#### Build Out Postgresql DBs
+#### Build Out Postgresql DBs for RHEL 7.9 x86_64
 - Postgresql 9.x
   - postgresql96-96
   - postgresql96-contrib
