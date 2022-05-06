@@ -83,8 +83,37 @@ Posgresql Client Test Suite
   - postgresql11-tcl
   - postgresql11-test
 
-- Postgresql 12.x
+- Postgresql 12.x (12.9) RHEL 7.9 x86_64
+  - postgresql12-12
+  - postgresql12-contrib
+  - postgresql12-devel
+  - postgresql12-docs
+  - postgresql12-libs
+  - postgresql12-llvmjit
+  - postgresql12-odbc-12
+  - postgresql12-odbc-13
+  - postgresql12-plperl
+  - postgresql12-plpython
+  - postgresql12-pltcl
+  - postgresql12-server
+  - postgresql12-tcl
+  - postgresql12-test
 
-- Postgresql 13.x
+- Postgresql 12.x (12.9) RHEL 8.x x86_64
+
+- Postgresql 13.x (13.6)
+  - postgresql13-13
+  - postgresql13-contrib
+  - postgresql13-devel
+  - postgresql13-docs
+  - postgresql13-libs
+  - postgresql13-llvmjit
+  - postgresql13-odbc-13
+  - postgresql13-plperl
+  - postgresql13-plpython
+  - postgresql13-pltcl
+  - postgresql13-server
+  - postgresql13-tcl
+  - postgresql13-test
 
 - Postgresql 14.x
