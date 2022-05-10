@@ -116,4 +116,25 @@ Posgresql Client Test Suite
   - postgresql13-tcl
   - postgresql13-test
 
-- Postgresql 14.x
+- Postgresql 14.x (14.2) RHEL 7.9 x86_64
+  - postgresql14-14
+  - postgresql14-contrib
+  - postgresql14-devel
+  - postgresql14-docs
+  - postgresql14-libs
+  - postgresql14-llvmjit
+  - postgresql14-odbc-13
+  - postgresql14-plperl
+  - postgresql14-plpython
+  - postgresql14-pltcl
+  - postgresql14-server
+  - postgresql14-tcl
+  - postgresql14-test
+
+- Postgresql 14.x - Postgis32 (3.2.1-1)
+  - postgis32-14
+  - postgis32-14-client
+  - postgis32-14-devel
+  - postgis32-14-docs
+  - postgis32-14-gui
+  - postgis32-14-utils
