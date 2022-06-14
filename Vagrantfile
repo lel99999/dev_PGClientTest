@@ -7,7 +7,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.define :testcli1 do |testcli1|
 #   testcli1.vm.box = "bento/centos-6.10"
-    testcli1.vm.box = "clouddood/RH7.5_baserepo"
+#   testcli1.vm.box = "clouddood/RH7.5_baserepo"
+    testcli1.vm.box = "clouddood/RH7.9_infra"
     testcli1.vm.host_name = "testcli1.test.dev"
 
 #   testcli1.vm.ssh.forward_agent = true
@@ -27,7 +28,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.define :testcli2 do |testcli2|
 #   testcli2.vm.box = "bento/centos-6.10"
-    testcli2.vm.box = "clouddood/RH7.5_baserepo"
+#   testcli2.vm.box = "clouddood/RH7.5_baserepo"
+    testcli2.vm.box = "clouddood/RH7.9_infra"
     testcli2.vm.host_name = "testcli2.test.dev"
 
 #   testcli2.ssh.forward_agent = true
@@ -47,7 +49,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.define :testcli3 do |testcli3|
 #   testcli3.vm.box = "bento/centos-6.10"
-    testcli3.vm.box = "clouddood/RH7.5_baserepo"
+#   testcli3.vm.box = "clouddood/RH7.5_baserepo"
+    testcli3.vm.box = "clouddood/RH7.9_infra"
     testcli3.vm.host_name = "testcli3.test.dev"
 
 #   testcli3.ssh.forward_agent = true
