@@ -1,0 +1,85 @@
+---
+#postgres_repository_url: "https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-6-x86_64/pgdg-redhat10-10-2.noarch.rpm"
+postgres_repository_repo: "https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64"
+#postgres_repository_url: "https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm"
+#postgres94_repository_url: "https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-7-x86_64/pgdg-redhat94-9.4-3.noarch.rpm"
+#postgres94_repository_url: "https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-7-x86_64/pgdg-redhat-repo-latest.hnoarch.rpm"
+##postgres_repository_url: "https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm"
+#postgres_repository_url: "https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm" 
+postgres_repository_url: "https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm"
+#postgres_rpm: "https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm"
+#postgres_rpm: "https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm"
+postgres_rpm: "https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm"
+#postgres_repository_key_url: "https://download.postgresql.org/pub/repos/yum/RPM-GPG-KEY-PGDG-10"
+postgres_repository_key_url: "https://download.postgresql.org/pub/repos/yum/RPM-GPG-KEY-PGDG-14"
+postgres_repository_name: pgdg14
+postgres_install_dir: /usr/pgsql-14
+postgres_install_repository: True
+
+postgres_packages:
+  - postgresql10
+  - postgresql10-devel
+  - postgresql10-odbc
+
+postgres14_packages:
+  - postgres14_packages:
+  - postgresql14.x86_64
+  - postgresql14-contrib.x86_64
+  - postgresql14-devel.x86_64
+  - postgresql14-docs.x86_64
+  - postgresql14-libs.x86_64
+  - postgresql14-llvmjit.x86_64
+  - postgresql14-odbc.x86_64
+  - postgresql14-plperl.x86_64
+  - postgresql14-plpython3.x86_64
+  - postgresql14-pltcl.x86_64
+# - postgresql14-server.x86_64
+  - postgresql14-test.x86_64
+
+postgres14_rhel_packages:
+  - rh-postgresql14.x86_64
+  - rh-postgresql14-pg_repack.x86_64
+  - rh-postgresql14-pg_repack-syspaths.x86_64
+  - rh-postgresql14-pgaudit.x86_64
+  - rh-postgresql14-postgresql.x86_64
+  - rh-postgresql14-postgresql-contrib.x86_64
+  - rh-postgresql14-postgresql-contrib-syspaths.x86_64
+  - rh-postgresql14-postgresql-devel.x86_64
+  - rh-postgresql14-postgresql-docs.x86_64
+  - rh-postgresql14-postgresql-libs.x86_64
+  - rh-postgresql14-postgresql-plperl.x86_64
+  - rh-postgresql14-postgresql-plpython.x86_64
+  - rh-postgresql14-postgresql-plpython3.x86_64
+  - rh-postgresql14-postgresql-pltcl.x86_64
+  - rh-postgresql14-postgresql-server.x86_64
+  - rh-postgresql14-postgresql-server-syspaths.x86_64
+  - rh-postgresql14-postgresql-static.x86_64
+  - rh-postgresql14-postgresql-syspaths.x86_64
+  - rh-postgresql14-postgresql-test.x86_64
+
+postgres_gis_packages:
+  - postgis25_10
+  - postgis25_10-client
+  - postgis25_10-devel
+  - postgis25_10-utils
+  - postgis25_10-gui
+
+postgres13_gis_packages:
+  - postgis32_13
+  - postgis32_13-client
+  - postgis32_13-devel
+  - postgis32_13-docs
+  - postgis32_13-gui
+  - postgis32_13-utils
+
+postgres_old_packages:
+  - rh-postgresql96
+  - rh-postgresql96-postgresql-libs
+  - postgresql-odbc
+  - postgresql96
+  - postgresql96-libs
+  - postgresql96-odbc
+  - postgis22
+  - postgis24_96
+
+clean_postgresql: False
