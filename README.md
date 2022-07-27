@@ -5,6 +5,7 @@ Posgresql Client Test Suite
 - Psycopg2
 - SQLAlchemy
 - ODBC
+- SAS PostgresSQL Driver
 
 #### Client Tester Roles
 - Postgresql13 Packages
