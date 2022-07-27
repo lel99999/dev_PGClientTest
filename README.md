@@ -1,6 +1,11 @@
 # dev_PGClientTest
 Posgresql Client Test Suite
 
+#### Test Python3 Modules
+- Psycopg2
+- SQLAlchemy
+- ODBC
+
 #### Client Tester Roles
 - Postgresql13 Packages
   - postgresql13.x86_64
