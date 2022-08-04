@@ -41,6 +41,7 @@
 #   - {role: iptables, when: "iptables_config"}
 #   - gocd_server
 #   - gocd
+    - postgresql13-clientRH7
 
 - hosts: testcli2 
   vars:
@@ -79,6 +80,7 @@
 #   - {role: common, when: "install_glusterfs"}
 #    - devtools
 #   - devtools6
+    - postgresql13-clientRH7
 
 - hosts: testcli3
   vars:
@@ -205,6 +207,7 @@
 #   - {role: pentaho, when: "install_pentaho"}
 #   - sublime
 #   - julia
+    - postgresql13-clientRH7
 
   tasks:
     - name: Install development packages
